@@ -1,6 +1,6 @@
 <h1>🧠 Mind Mate – AI</h1>
 
-Mind Mate – AI** is an emotion-aware voice AI companion designed for students and young adults.
+**Mind Mate – AI** is an emotion-aware voice AI companion designed for students and young adults.
 
 Unlike traditional chatbots that only respond to text, Mind Mate listens to *how* a user speaks — detecting emotional cues and intent — and responds with a natural, human-like voice. The goal is not productivity or automation, but **emotional understanding and short, supportive interventions**.
 
