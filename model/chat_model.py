@@ -6,6 +6,6 @@ class ChatMessage(BaseModel):
     text:str
 
 class ChatResponse(BaseModel):
-    reply:str
+    ai_reply:str
     audio_base64: str
     
