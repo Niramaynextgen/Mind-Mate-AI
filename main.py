@@ -35,9 +35,15 @@ async def mindmate_chat(request:ChatMessage):
     return ChatResponse(ai_reply=ai_reply, audio_base64=audio_base64)
 
 
-@app.get("/")
-async def root():
-    return {"message":"MindMate Backend is running 💙"}
-if __name__ == "__main__":
-    uvicorn.run("main:app",host="0.0.0.0",port=8000,reload=True)
+# @app.get("/")
+# async def root():
+#     return {"message":"MindMate Backend is running 💙"}
+# if __name__ == "__main__":
+#     uvicorn.run("main:app",host="0.0.0.0",port=8000,reload=True)
     
+@app.post("/mindmate")
+async def mindmate_chat(request: ChatMessage):
+    return {
+        "ai_reply": "Backend working perfectly",
+        "audio_base64": ""
+    }
