@@ -14,7 +14,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://mind-mate-ai-production.up.railway.app"
+        "https://ai-mindmate.netlify.app/"
     ],  
     allow_credentials=False,
     allow_methods=["*"],
