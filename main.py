@@ -21,31 +21,42 @@ app.add_middleware(
 
 
 # ✅ MAIN CHAT ENDPOINT
+# @app.post("/mindmate")
+# async def mindmate_chat(request: ChatMessage):
+#     try:
+#         # 🔥 Import services INSIDE function (IMPORTANT)
+#         from services.gemini_service import generate_ai_reply
+#         from services.eleven_service import text_to_speech
+#         from services.firestore_service import save_chat
+
+#         if not request.text.strip():
+#             raise HTTPException(status_code=400, detail="Message cannot be empty")
+
+#         ai_reply = generate_ai_reply(request.text)
+
+#         audio_bytes = text_to_speech(ai_reply)
+#         audio_base64 = base64.b64encode(audio_bytes).decode("utf-8")
+
+#         save_chat(request.user_id, request.text, ai_reply)
+
+#         return {
+#             "ai_reply": ai_reply,
+#             "audio_base64": audio_base64
+#         }
+
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=str(e))
 @app.post("/mindmate")
 async def mindmate_chat(request: ChatMessage):
     try:
-        # 🔥 Import services INSIDE function (IMPORTANT)
-        from services.gemini_service import generate_ai_reply
-        from services.eleven_service import text_to_speech
-        from services.firestore_service import save_chat
-
-        if not request.text.strip():
-            raise HTTPException(status_code=400, detail="Message cannot be empty")
-
-        ai_reply = generate_ai_reply(request.text)
-
-        audio_bytes = text_to_speech(ai_reply)
-        audio_base64 = base64.b64encode(audio_bytes).decode("utf-8")
-
-        save_chat(request.user_id, request.text, ai_reply)
-
         return {
-            "ai_reply": ai_reply,
-            "audio_base64": audio_base64
+            "debug": "Route hit successfully",
+            "user_id": request.user_id,
+            "text": request.text
         }
-
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.get("/")
 async def root():
