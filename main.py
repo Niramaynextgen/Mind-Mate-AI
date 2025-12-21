@@ -1,49 +1,47 @@
-# backend/main.py
-
+import base64
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+import uvicorn
+from model.chat_model import ChatMessage, ChatResponse  
+from services.gemini_service import generate_ai_reply
+from services.eleven_service import text_to_speech
+from services.firestore_service import save_chat
 
-app = FastAPI()
-
-# ---------------------------
-# CORS SETTINGS
-# ---------------------------
-origins = [
-    "http://localhost:3000",  # your frontend during development
-    "https://your-frontend-domain.com",  # replace with deployed frontend domain
-]
+app = FastAPI(title="MindMate")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # can use ["*"] for testing only
-    allow_credentials=True,
+    allow_origins=[
+        "http://localhost:3000",
+        "https://mind-mate-ai-production.up.railway.app"
+    ],  
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ---------------------------
-# DATA MODEL
-# ---------------------------
-class MindMateRequest(BaseModel):
-    message: str
+@app.post("/mindmate", response_model=ChatResponse)
+async def mindmate_chat(request: ChatMessage):
+    if not request.text.strip():
+        raise HTTPException(status_code=400, detail="Message cannot be empty")
+    
+    ai_reply = generate_ai_reply(request.text)
 
-class MindMateResponse(BaseModel):
-    reply: str
+    audio_bytes = text_to_speech(ai_reply)
+    audio_base64 = base64.b64encode(audio_bytes).decode("utf-8")
 
-# ---------------------------
-# API ENDPOINT
-# ---------------------------
-@app.post("/mindmate", response_model=MindMateResponse)
-async def mindmate_endpoint(request: MindMateRequest):
-    user_message = request.message
-    # Your processing logic here, e.g., AI/BERT response
-    response_text = f"You said: {user_message}"  # placeholder logic
-    return MindMateResponse(reply=response_text)
+    save_chat(request.user_id, request.text, ai_reply)
 
-# ---------------------------
-# OPTIONAL ROOT ENDPOINT
-# ---------------------------
+    return ChatResponse(ai_reply=ai_reply, audio_base64=audio_base64)
+
+
+@app.get("/")
+async def root():
+    return {"message":"MindMate Backend is running 💙"}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
 @app.get("/")
 async def root():
     return {"message": "MindMate API is running"}
