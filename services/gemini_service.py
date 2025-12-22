@@ -13,7 +13,7 @@ Respond with deep understanding, care, and emotional intelligence.
 Do not provide medical advice. Encourage professional help when necessary.
 """
 
-model = genai.GenerativeModel("gemini-2.0-flash")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 def generate_ai_reply(user_text: str) -> str:
     try:
