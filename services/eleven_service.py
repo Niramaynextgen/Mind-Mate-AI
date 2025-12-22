@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 ELEVEN_API_KEY = os.getenv("ELEVEN_API_KEY")  
-VOICE_ID = os.getenv("VOICE_ID", "21m00Tcm4TlvDq8ikWAM")
+VOICE_ID = os.getenv("VOICE_ID", "VOICE_ID")
 
 def text_to_speech(text: str)-> str:
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
