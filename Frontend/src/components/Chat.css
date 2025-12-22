@@ -1,0 +1,171 @@
+.chat-container {
+  height: 100vh;
+  padding: 20px;
+  background: #eaf3ff;
+  font-family: "Inter", sans-serif;
+}
+
+.dark {
+  background: #1a1a1a;
+  color: white;
+}
+
+.top-bar-modern {
+  background: #6eb4ff;
+  padding: 14px 18px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.dark .top-bar-modern {
+  background-color: #1f3855;
+}
+
+.dark .back-btn {
+  background: #333;
+  color: white;
+}
+
+.dark-toggle {
+  font-weight: 550;
+  color: black;
+}
+
+.dark .dark-toggle {
+  background-color: #333;
+  color: white;
+}
+
+.chat-header-modern {
+  font-size: 22px;
+  font-weight: 600;
+  color: black;
+}
+
+.dark .chat-header-modern {
+  color: white;
+}
+
+.chat-box-modern {
+  margin-top: 20px;
+  background: white;
+  height: 70vh;
+  padding: 16px;
+  border-radius: 18px;
+  overflow-y: auto;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.dark .chat-box-modern {
+  background: #242424;
+  border-color: #444;
+}
+
+.user-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.bot-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.bot-avatar {
+  font-size: 30px;
+}
+
+.user-bubble {
+  background: #6eb4ff;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 16px 16px 0 16px;
+  max-width: 60%;
+}
+
+.dark .user-bubble {
+  background-color: #182b40;
+  color: white;
+}
+
+.bot-bubble {
+  background: #e8e8e8;
+  padding: 12px 16px;
+  color: #000;
+  border-radius: 16px 16px 16px 0;
+  max-width: 60%;
+}
+
+.dark .bot-bubble {
+  background: #333;
+  color: white;
+}
+
+/* INPUT modern area */
+.input-area-modern {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.chat-input-modern {
+  flex: 1;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #fff;
+  font-size: 16px;
+}
+
+
+.dark .chat-input-modern {
+  background: #2c2c2c;
+  color: white;
+  border-color: #555;
+}
+
+.send-btn {
+  padding: 14px 20px;
+  background: #6eb4ff;
+  border-radius: 14px;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dark .send-btn {
+  background-color: #264262;
+  color: white;
+}
+
+.record-btn {
+  padding: 14px 18px;
+  background: #4ecb71;
+  font-size: 18px;
+  border-radius: 14px;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dark .record-btn {
+  background-color: #066922;
+  color: white;
+}
+
+.record-btn-active {
+  padding: 14px 18px;
+  background: #ff4d4d;
+  border-radius: 14px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
