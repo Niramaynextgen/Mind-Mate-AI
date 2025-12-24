@@ -16,6 +16,7 @@ This indicates that the AI provider (Gemini) has temporarily exceeded its usage 
 It is **not a frontend or backend code error**.  
 
 If there is an actual system error, the backend will return a proper HTTP error response instead.
+
 ---
 
 <h2>🚀 What Problem Are We Solving?</h2> 
