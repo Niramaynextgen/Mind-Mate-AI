@@ -6,6 +6,16 @@ Unlike traditional chatbots that only respond to text, Mind Mate listens to *how
 
 This project is built for the **Google Cloud + ElevenLabs Hackathon** and focuses on simplicity, creativity, and real-world impact.
 
+## Live Demo
+click: https://ai-mindmate.netlify.app
+---
+Note on AI Response Limits
+If the application responds with:
+"I'm here with you, but I'm having trouble responding right now."
+This indicates that the AI provider (Gemini) has temporarily exceeded its usage limit or quota.  
+It is **not a frontend or backend code error**.  
+
+If there is an actual system error, the backend will return a proper HTTP error response instead.
 ---
 
 <h2>🚀 What Problem Are We Solving?</h2> 
